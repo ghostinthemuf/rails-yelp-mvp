@@ -1,0 +1,14 @@
+<h1>Review <%= @restaurant.name %></h1>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= f.input :content %>
+    <%= f.input :rating, collection: Review::RATINGS %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Review this joint", class: "btn btn-primary" %>
+  </div>
+<% end %>
+<p><%= link_to "Go back to the restaurant", restaurants_path %></p>
+

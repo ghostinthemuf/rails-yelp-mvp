@@ -4,12 +4,22 @@
     <title>RailsYelpMvp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container mt-5 col-6 offset-3">
+      <div class="navbar fixed-top">
+        <h1><%= link_to "There Is No Fork", restaurants_path %></h1>
+        <p><%= link_to "New joint", new_restaurant_path %></p>
+      </div>
+      <hr>
+      <div class="main">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
